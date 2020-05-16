@@ -10,6 +10,8 @@ console.log(path.join(__dirname, '../public'))
 
 // init express server
 const app = express();
+// when deployed to herolu the port will come from process.env.PORT
+const port = process.env.PORT || 3000;
 
 // Define paths for express config
 const publicDirPath = path.join(__dirname, '../public');
@@ -104,6 +106,6 @@ app.get('*', (req, res) => {
 });
 
 // make express server listen to localhost port 3000
-app.listen(3000, () => {
-    console.log('server up on port localhost:3000/');
+app.listen(port, () => {
+    console.log(`server up on port ${port}`);
 });
